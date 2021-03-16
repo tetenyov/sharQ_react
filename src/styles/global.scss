@@ -1,16 +1,11 @@
 body {
-  display: grid;
-  justify-items: center;
   margin: 0;
   font-family: "Lato", "Arial", sans-serif;
   background-color: desaturate($bg-color, 25%);
 }
 
 #root {
-  min-width: $mob-width;
-  max-width: $mob-width-max;
-
-  // background-image: url('/img/bg-upper-part.png');
-  background-color: green;
+  display: grid;
+  justify-items: center;
 }
 
