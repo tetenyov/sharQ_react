@@ -1,4 +1,7 @@
 @import "variables.scss";
 @import "mixins.scss";
+// @import "fonts.scss";
 @import "global.scss";
-@import "../components/app/page-wrapper.scss"
+@import "../components/app/page-wrapper.scss";
+@import "../components/settings/settings-list.scss";
+@import "../components/header/page-header.scss";

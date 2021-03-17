@@ -1,9 +1,13 @@
 import React from 'react'
 
-function Settings() {
-  
+type SettingsProps = {
+  menuIsOpen: boolean
+}
+
+function Settings({ menuIsOpen }: SettingsProps) {
+
   return (
-    <ul className='settings-list'>
+    <ul className={`settings-list${menuIsOpen ? '--show' : ''}`}>
       <li className="settings-list__item">
           <fieldset className="settings-list__fieldset">
             <legend className="settings-list__legend">Первое число</legend>
