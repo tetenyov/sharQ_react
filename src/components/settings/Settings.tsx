@@ -7,7 +7,7 @@ type SettingsProps = {
 function Settings({ menuIsOpen }: SettingsProps) {
 
   return (
-    <ul className={`settings-list${menuIsOpen ? '--show' : ''}`}>
+    <ul className={`settings-list ${menuIsOpen ? 'settings-list--show' : ''}`}>
       <li className="settings-list__item">
           <fieldset className="settings-list__fieldset">
             <legend className="settings-list__legend">Первое число</legend>

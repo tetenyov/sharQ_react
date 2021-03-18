@@ -5,8 +5,10 @@ body {
 }
 
 #root {
+  // outline: 2px solid black;
   display: grid;
   justify-items: center;
+  width: 100%;
 }
 
 img {
@@ -21,6 +23,7 @@ img {
 }
 
 ul {
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -42,6 +45,16 @@ legend {
   white-space: normal;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 @media(min-width: 500px) {
   body {
     opacity: 0;
@@ -57,6 +70,8 @@ legend {
     min-width: 300px;
     max-width: 400px;
     height: 300px;
+
+    font-family: "Lato", "Arial", sans-serif;
   
     @include font(1.5rem, 1.2, bold);
     text-align: center;

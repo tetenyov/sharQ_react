@@ -1,4 +1,9 @@
 .page-header {
-  outline: 1px solid green;
   position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+
+  height: 60px;
+ 
 }

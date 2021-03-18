@@ -4,14 +4,14 @@ import Header from '../header/Header'
 import Heroes from '../heroes/Heroes'
 import Problem from '../problem/Problem'
 
-import bgImage from '../../img/bg_upper_part.png'
-
 function App() {
   return (
-    <div className='page-wrapper' style={{backgroundImage: `url(${bgImage})`}}>
+    <div className='page-wrapper'>
       <Header />
-      <Heroes />
-      <Problem />
+      <main className='page-main'>
+        <Heroes />
+        <Problem />
+      </main>
     </div>
   );
 }
