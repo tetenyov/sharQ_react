@@ -1,10 +1,10 @@
 import React from 'react'
 
-type SettingsProps = {
+type TSettings = {
   menuIsOpen: boolean
 }
 
-function Settings({ menuIsOpen }: SettingsProps) {
+function Settings({ menuIsOpen }: TSettings) {
 
   return (
     <ul className={`settings-list ${menuIsOpen ? 'settings-list--show' : ''}`}>
