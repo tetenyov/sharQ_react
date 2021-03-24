@@ -1,23 +1,12 @@
 import React from 'react'
 
-enum ButtonTypes {
-  'button',
-  'submit',
-  'reset',
-  undefined
-}
+type TControl = JSX.IntrinsicElements['button']
 
-type TProps = {
-  type: ButtonTypes;
-  value: string;
-  // children
-}
-
-function Control(props: TProps) {
+function Control(props: TControl) {
 
   return (
     <button type={props.type} value={props.value}>
-      {/* {props.children} */}
+      {props.children}
     </button>
   )
 }
