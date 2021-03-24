@@ -1,5 +1,12 @@
 .page-wrapper {
+  outline: 2px solid red;
   width: 100%;
   min-width: $mob-width;
-  max-width: $mob-width-max;
+  max-width: $desktop-width-max;
+  overflow: hidden;
 }
+
+// @media(min-width: $desktop-width-max) {
+//   .page-wrapper {
+//   }
+// }

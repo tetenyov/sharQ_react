@@ -7,3 +7,22 @@
   height: 60px;
  
 }
+
+.page-header__settings-toggler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+
+  width: 30vw;
+  height: 50px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}

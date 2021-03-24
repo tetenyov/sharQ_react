@@ -11,7 +11,9 @@ function Header() {
   return (
     <header className='page-header'>
       <button type='button'>Start</button>
-      <button type='button' onClick={handleMenuClick}>Menu</button>
+      <button type='button' className='page-header__settings-toggler' onClick={handleMenuClick}>
+        Menu
+      </button>
       <Settings menuIsOpen={isOpen}/>
     </header>
   )
