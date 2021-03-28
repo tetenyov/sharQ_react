@@ -1,7 +1,4 @@
 .problem__table {
-  // outline: 2px solid red;
-  display: grid;
-
   width: 80%;
   min-width: 200px;
   margin: 0 auto;
@@ -11,13 +8,19 @@
 
 .problem__answer,
 .problem__question {
-  outline: 1px solid black;
   display: grid;
   justify-items: center;
 }
 
+.problem__question {
+  grid-template-columns: repeat(3, 33%);
+  justify-items: stretch;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .problem__cell {
-  width: 30%;
+  display: block;
   @include padd(4px, 0, 4px, 0);
 
   @include font(1.7rem, 1.1, 700);
@@ -26,24 +29,29 @@
   background-color: $bg-cell-color;
   box-shadow: inset 0 0 2px 0 #000000;
 
-  &--operation {
-    outline: 1px solid green;
-    width: 25%;
-    height: 40px;
-  }
-
+  
   &--answer {
     width: 40%;
     max-width: 250px;
-    // padding: 0;
-
+    height: 50px;
+    
     background-color: transparent;
     box-shadow: none;
   }
+  &--operation {
+    min-width: 50px;
+    height: 40px;
+  }
+
+  &--first-integer,
+  &--second-integer {
+    min-width: 70px;
+    height: 40px;
+  }
 }
 
-// .problem__answer-input {
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-// }
+.problem__answer-input {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
