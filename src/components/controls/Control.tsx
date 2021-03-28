@@ -4,7 +4,7 @@ type TControl = JSX.IntrinsicElements['button']
 
 function Control(props: TControl) {
   return (
-    <button type={props.type} value={props.value}>
+    <button type={props.type} value={props.value} className="controls-list__button">
       { props.children }
     </button>
   )

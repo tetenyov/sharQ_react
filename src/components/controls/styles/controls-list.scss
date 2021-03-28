@@ -1,6 +1,17 @@
 .controls-list {
   display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  justify-items: stretch;
+  width: 70vw;
+  margin: 0 auto;
+
 }
+
+.controls-list__item {
+   aspect-ratio: 5/3;
+}
+
 
 .controls-list__item:nth-child(1) {
   order: 3;
@@ -48,4 +59,10 @@
 
 .controls-list__item:nth-child(12) {
   order: 12;
+}
+
+.controls-list__button {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
