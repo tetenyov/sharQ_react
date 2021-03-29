@@ -1,11 +1,13 @@
-import React from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../store'
 
-type TSettings = {
+type SettingsProps = {
   menuIsOpen: boolean
 }
 
-function Settings({ menuIsOpen }: TSettings) {
-
+function Settings({ menuIsOpen }: SettingsProps) {
+  const settings = useSelector((state: RootState) => state.settings)
+  
   return (
     <ul className={`settings-list ${menuIsOpen ? 'settings-list--show' : ''}`}>
       <li className="settings-list__item">

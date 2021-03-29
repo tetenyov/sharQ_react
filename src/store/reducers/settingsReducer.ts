@@ -1,21 +1,6 @@
 import { Operations } from '../../constants/constants'
 
-type TAction = {
-  type: string;
-  payload?: any
-}
-
-type TInt = {
-  oneDigit: boolean;
-  twoDigits: boolean;
-  threeDigits?: boolean;
-}
-
-export type TSettingsState = {
-  leftInt: TInt;
-  rightInt: TInt;
-  operation: string
-}
+import {TSettingsState, TAction} from '../types/settings'
 
 const initialState: TSettingsState = {
   leftInt: {
