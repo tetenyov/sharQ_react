@@ -3,14 +3,22 @@ export type TAction = {
   payload?: any
 }
 
-type TInt = {
+type TInteger = {
   oneDigit: boolean;
   twoDigits: boolean;
   threeDigits?: boolean;
 }
 
+type TOperation = {
+  add: boolean,
+  sub: boolean,
+  mult: boolean,
+  div: boolean,
+}
+
 export type TSettingsState = {
-  leftInt: TInt;
-  rightInt: TInt;
-  operation: string
+  leftInt: TInteger;
+  rightInt: TInteger;
+  operation: TOperation;
+  speed: number;
 }
