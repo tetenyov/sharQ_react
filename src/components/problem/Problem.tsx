@@ -1,6 +1,9 @@
-import React from 'react'
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 function Problem() {
+  const problem = useSelector((state: RootState) => state.problem.problem)
+
   return (
     <section className='problem'>
       <h2 className='visually-hidden'>Problem</h2>
@@ -8,7 +11,8 @@ function Problem() {
         <tbody>
           <tr className='problem__answer'>
             <td className='problem__cell problem__cell--answer'>
-              <input className='problem__answer-input' type='text' id='answer' disabled />
+              <input className='problem__answer-input' type='text' id='answer'
+                value={problem} disabled />
             </td>
           </tr>
           <tr className='problem__question'>
