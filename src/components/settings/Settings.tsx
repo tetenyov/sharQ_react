@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 
-import { 
-  changeSettingsOperand, 
-  changeSettingsOperation, 
-  changeSettingsSpeed 
+import {
+  changeSettingsOperand,
+  changeSettingsOperation,
+  changeSettingsSpeed
 } from '../../store/action-creators/action-creators';
 
 type SettingsProps = { menuIsOpen: boolean };
@@ -14,19 +14,21 @@ function Settings({ menuIsOpen }: SettingsProps) {
   const dispatch = useDispatch();
 
   const handleInputChange = ({ target }: { target: any }) => {
-    if (target.name === 'leftInt' || target.name === 'rightInt') {
-      dispatch(changeSettingsOperand({
-        operand: target.name,
-        value: target.value,
-      }))
-    }
-    
-    if (target.name === 'operation') {
-      dispatch(changeSettingsOperation(target.value))
-    }
+    switch (target.name) {
+      case 'leftInt':
+      case 'rightInt':
+        dispatch(changeSettingsOperand({
+          operand: target.name,
+          value: target.value,
+        }));
+        break;
+      
+      case 'operation': 
+        dispatch(changeSettingsOperation(target.value));
+        break;
 
-    if (target.name === 'speed') {
-      dispatch(changeSettingsSpeed(Number(target.value)))
+      default:
+        dispatch(changeSettingsSpeed(Number(target.value)))
     }
   };
 
@@ -38,14 +40,14 @@ function Settings({ menuIsOpen }: SettingsProps) {
         <fieldset className="settings-list__fieldset">
           <legend className="settings-list__legend">Первое число</legend>
           <p className="settings-list__inputs-group">
-            <input className="settings-list__input settings-list__input--first-number-one"
+            <input className="settings-list__input settings-list__input--first-number-one" readOnly
               type="radio" name="leftInt" value="oneDigit" checked={settings.leftInt.oneDigit}
             />
-            <input className="settings-list__input settings-list__input--first-number-two"
+            <input className="settings-list__input settings-list__input--first-number-two" readOnly
               type="radio" name="leftInt" value="twoDigits" checked={settings.leftInt.twoDigits}
             />
             <input className="settings-list__input settings-list__input--first-number-three settings-list__input--hidden"
-              type="radio" name="leftInt" value="threeDigits" checked={settings.leftInt.threeDigits}
+              type="radio" name="leftInt" value="threeDigits" checked={settings.leftInt.threeDigits} readOnly
             />
           </p>
         </fieldset>
@@ -54,10 +56,10 @@ function Settings({ menuIsOpen }: SettingsProps) {
         <fieldset className="settings-list__fieldset">
           <legend className="settings-list__legend">Второе число</legend>
           <p className="settings-list__inputs-group">
-            <input className="settings-list__input settings-list__input--second-number-one"
+            <input className="settings-list__input settings-list__input--second-number-one" readOnly
               type="radio" name="rightInt" value="oneDigit" checked={settings.rightInt.oneDigit}
             />
-            <input className="settings-list__input settings-list__input--second-number-two"
+            <input className="settings-list__input settings-list__input--second-number-two" readOnly
               type="radio" name="rightInt" value="twoDigits" checked={settings.rightInt.twoDigits}
             />
           </p>
@@ -67,16 +69,16 @@ function Settings({ menuIsOpen }: SettingsProps) {
         <fieldset className="settings-list__fieldset">
           <legend className="settings-list__legend">Действие</legend>
           <p className="settings-list__inputs-group">
-            <input className="settings-list__input settings-list__input--operation-add"
+            <input className="settings-list__input settings-list__input--operation-add" readOnly
               type="radio" name="operation" value="add" checked={settings.operation.add}
             />
-            <input className="settings-list__input settings-list__input--operation-subtr"
+            <input className="settings-list__input settings-list__input--operation-subtr" readOnly
               type="radio" name="operation" value="sub" checked={settings.operation.sub}
             />
-            <input className="settings-list__input settings-list__input--operation-mult"
+            <input className="settings-list__input settings-list__input--operation-mult" readOnly
               type="radio" name="operation" value="mult" checked={settings.operation.mult}
             />
-            <input className="settings-list__input settings-list__input--operation-div"
+            <input className="settings-list__input settings-list__input--operation-div" readOnly
               type="radio" name="operation" value="div" checked={settings.operation.div}
             />
           </p>
@@ -85,7 +87,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
       <li className="settings-list__item">
         <label className="settings-list__legend">
           Скорость акулы
-          <input type="range" name="speed" value={settings.speed} min="1" max="5" />
+          <input type="range" name="speed" value={settings.speed} min="1" max="5" readOnly />
         </label>
       </li>
     </ul>
