@@ -13,6 +13,8 @@ function Settings({ menuIsOpen }: SettingsProps) {
   const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
 
+  console.log(settings)
+
   const handleInputChange = ({ target }: { target: any }) => {
     switch (target.name) {
       case 'leftInt':

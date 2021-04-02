@@ -1,9 +1,18 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
 
+import { Operations } from '../../constants/constants'
+import { TOperation } from '../../store/types/settings'
+
 function Problem() {
-  const problem = useSelector((state: RootState) => state.problem)
-  console.log(problem)
+  const problem = useSelector((state: RootState) => state.problem);
+  const operation = useSelector((state: RootState) => state.settings.operation)
+
+  const getOperation = (value: TOperation, vocabulary: typeof Operations) => {
+     const selectedOperation = Object.entries(value).find(([key, value]: [string, boolean]) => value)
+     return selectedOperation[0]
+  }
+
   return (
     <section className='problem'>
       <h2 className='visually-hidden'>Problem</h2>
