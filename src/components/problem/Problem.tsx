@@ -9,10 +9,13 @@ function Problem() {
   const operation = useSelector((state: RootState) => state.settings.operation)
 
   const getOperation = (value: TOperation, vocabulary: typeof Operations) => {
-     const selectedOperation = Object.entries(value).find(([key, value]: [string, boolean]) => value)
-     return selectedOperation[0]
-  }
+     const selectedOperation = Object.entries(value).find(([_, value]) => value)
 
+     if (selectedOperation) {
+       return Operations[selectedOperation[0].toUpperCase()]
+     }
+  }
+  
   return (
     <section className='problem'>
       <h2 className='visually-hidden'>Problem</h2>
@@ -29,7 +32,7 @@ function Problem() {
               {problem.leftInt}
             </td>
             <td className='problem__cell problem__cell--operation'>
-              {problem.operation}
+              { getOperation(operation, Operations) }
             </td>
             <td className='problem__cell problem__cell--second-integer'>
               {problem.rightInt}

@@ -9,7 +9,7 @@ type TInteger = {
   threeDigits?: boolean;
 }
 
-type TOperation = {
+export type TOperation = {
   add: boolean,
   sub: boolean,
   mult: boolean,

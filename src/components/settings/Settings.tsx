@@ -13,8 +13,6 @@ function Settings({ menuIsOpen }: SettingsProps) {
   const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
 
-  console.log(settings)
-
   const handleInputChange = ({ target }: { target: any }) => {
     switch (target.name) {
       case 'leftInt':
@@ -24,8 +22,8 @@ function Settings({ menuIsOpen }: SettingsProps) {
           value: target.value,
         }));
         break;
-      
-      case 'operation': 
+
+      case 'operation':
         dispatch(changeSettingsOperation(target.value));
         break;
 
@@ -64,6 +62,10 @@ function Settings({ menuIsOpen }: SettingsProps) {
             <input className="settings-list__input settings-list__input--second-number-two" readOnly
               type="radio" name="rightInt" value="twoDigits" checked={settings.rightInt.twoDigits}
             />
+            {!settings.operation.div &&
+              <input className="settings-list__input settings-list__input--second-number-three" readOnly
+                type="radio" name="rightInt" value="threeDigits" checked={settings.rightInt.threeDigits} />
+            }
           </p>
         </fieldset>
       </li>
