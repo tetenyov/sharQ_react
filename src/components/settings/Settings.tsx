@@ -42,6 +42,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
           <p className="settings-list__inputs-group">
             <input className="settings-list__input settings-list__input--first-number-one" readOnly
               type="radio" name="leftInt" value="oneDigit" checked={settings.leftInt.oneDigit}
+              disabled={settings.operation.div && settings.rightInt.twoDigits}
             />
             <input className="settings-list__input settings-list__input--first-number-two" readOnly
               type="radio" name="leftInt" value="twoDigits" checked={settings.leftInt.twoDigits}
