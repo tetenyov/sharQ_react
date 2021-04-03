@@ -9,7 +9,11 @@ type TInteger = {
   threeDigits?: boolean;
 }
 
-export type TOperation = {
+type TKey = {
+  [key: string]: boolean;
+}
+
+export type TOperation = TKey & {
   add: boolean,
   sub: boolean,
   mult: boolean,
