@@ -2,7 +2,8 @@ import {
   CHANGE_SETTINGS_OPERAND, 
   CHANGE_SETTINGS_OPERATION, 
   CHANGE_SETTINGS_SPEED,
-  GENERATE_PROBLEM 
+  GENERATE_PROBLEM,
+  SEND_ANSWER, 
 } from '../../constants/actions';
 
 type TChangeSettingsPayload = {
@@ -33,6 +34,13 @@ export function changeSettingsSpeed(payload: number) {
 
 export function generateProblem() {
   return {
-    type: GENERATE_PROBLEM
+    type: GENERATE_PROBLEM,
+  };
+};
+
+export function sendAnswer(answer: string) {
+  return {
+    type: SEND_ANSWER,
+    payload: answer,
   };
 };
