@@ -9,20 +9,20 @@ type TInteger = {
   threeDigits?: boolean;
 }
 
-type TKey = {
-  [key: string]: boolean;
-}
+// type TKey = {
+//   [key: string]: boolean;
+// }
 
-export type TOperation = TKey & {
-  add: boolean,
-  sub: boolean,
-  mult: boolean,
-  div: boolean,
-}
+// export type TOperation = TKey & {
+//   add: boolean,
+//   sub: boolean,
+//   mult: boolean,
+//   div: boolean,
+// }
 
 export type TSettingsState = {
   leftInt: TInteger;
   rightInt: TInteger;
-  operation: TOperation;
+  operation: string;
   speed: number;
 }

@@ -1,17 +1,30 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 
 import { Operations } from '../../constants/constants';
-import { TOperation } from '../../store/types/settings';
+import { generateProblem, sendCorrectAnswer } from '../../store/action-creators/action-creators';
+
 
 function Problem() {
   const problem = useSelector((state: RootState) => state.problem);
   const operation = useSelector((state: RootState) => state.settings.operation);
+  const dispatch = useDispatch();
 
-  const getOperation = (value: TOperation, vocabulary: typeof Operations) => {
-    const selectedOperation = Object.entries(value).find(([_, value]) => value) || '';
+  const problemToAnswer = {
+    [Operations.ADD]: () => problem.leftInt + problem.rightInt,
+    [Operations.SUB]: () => problem.leftInt - problem.rightInt,
+    [Operations.MULT]: () => problem.leftInt * problem.rightInt,
+    [Operations.DIV]: () => problem.leftInt / problem.rightInt,
+  };
 
-    return Operations[selectedOperation[0].toUpperCase()];
+  const answer = problem.answer;
+  const correctAnswer = problemToAnswer[operation]();
+
+  console.log(correctAnswer)
+  console.log(answer)
+  if (Number(answer) === correctAnswer) {
+    dispatch(generateProblem())
+    dispatch(sendCorrectAnswer())
   }
 
   return (
@@ -22,7 +35,7 @@ function Problem() {
           <tr className='problem__answer'>
             <td className='problem__cell problem__cell--answer'>
               <input className='problem__answer-input' type='text' id='answer'
-                value={problem.answer} disabled 
+                value={answer} disabled 
               />
             </td>
           </tr>
@@ -31,7 +44,7 @@ function Problem() {
               {problem.leftInt}
             </td>
             <td className='problem__cell problem__cell--operation'>
-              {getOperation(operation, Operations)}
+              {operation}
             </td>
             <td className='problem__cell problem__cell--second-integer'>
               {problem.rightInt}

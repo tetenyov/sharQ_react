@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 
+import { Operations } from '../../constants/constants'
+
 import {
   changeSettingsOperand,
   changeSettingsOperation,
@@ -40,7 +42,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
         <fieldset className="settings-list__fieldset">
           <legend className="settings-list__legend">Первое число</legend>
           <p className="settings-list__inputs-group">
-            {(!settings.operation.div || !settings.rightInt.twoDigits) &&
+            {(!(settings.operation === Operations.DIV) || !settings.rightInt.twoDigits) &&
               <input className="settings-list__input settings-list__input--first-number-one" readOnly
                 type="radio" name="leftInt" value="oneDigit" checked={settings.leftInt.oneDigit}
               />
@@ -48,7 +50,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
             <input className="settings-list__input settings-list__input--first-number-two" readOnly
               type="radio" name="leftInt" value="twoDigits" checked={settings.leftInt.twoDigits}
             />
-            {!settings.operation.mult &&
+            {!(settings.operation === Operations.MULT) &&
               <input className="settings-list__input settings-list__input--first-number-three settings-list__input--hidden"
                 type="radio" name="leftInt" value="threeDigits" checked={settings.leftInt.threeDigits} readOnly
               />
@@ -66,7 +68,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
             <input className="settings-list__input settings-list__input--second-number-two" readOnly
               type="radio" name="rightInt" value="twoDigits" checked={settings.rightInt.twoDigits}
             />
-            {(!settings.operation.div && !settings.operation.mult) &&
+            {(!(settings.operation === Operations.DIV) && !(settings.operation === Operations.MULT)) &&
               <input className="settings-list__input settings-list__input--second-number-three" readOnly
                 type="radio" name="rightInt" value="threeDigits" checked={settings.rightInt.threeDigits} />
             }
@@ -78,16 +80,16 @@ function Settings({ menuIsOpen }: SettingsProps) {
           <legend className="settings-list__legend">Действие</legend>
           <p className="settings-list__inputs-group">
             <input className="settings-list__input settings-list__input--operation-add" readOnly
-              type="radio" name="operation" value="add" checked={settings.operation.add}
+              type="radio" name="operation" value="add" checked={settings.operation === Operations.ADD}
             />
             <input className="settings-list__input settings-list__input--operation-subtr" readOnly
-              type="radio" name="operation" value="sub" checked={settings.operation.sub}
+              type="radio" name="operation" value="sub" checked={settings.operation === Operations.SUB}
             />
             <input className="settings-list__input settings-list__input--operation-mult" readOnly
-              type="radio" name="operation" value="mult" checked={settings.operation.mult}
+              type="radio" name="operation" value="mult" checked={settings.operation === Operations.MULT}
             />
             <input className="settings-list__input settings-list__input--operation-div" readOnly
-              type="radio" name="operation" value="div" checked={settings.operation.div}
+              type="radio" name="operation" value="div" checked={settings.operation === Operations.DIV}
             />
           </p>
         </fieldset>

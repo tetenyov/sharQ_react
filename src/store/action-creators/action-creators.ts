@@ -3,7 +3,8 @@ import {
   CHANGE_SETTINGS_OPERATION, 
   CHANGE_SETTINGS_SPEED,
   GENERATE_PROBLEM,
-  SEND_ANSWER, 
+  SEND_ANSWER,
+  SEND_CORRECT_ANSWER, 
 } from '../../constants/actions';
 
 type TChangeSettingsPayload = {
@@ -18,7 +19,7 @@ export function changeSettingsOperand(payload: TChangeSettingsPayload) {
   };
 };
 
-export function changeSettingsOperation(payload: TChangeSettingsPayload) {
+export function changeSettingsOperation(payload: string) {
   return {
     type: CHANGE_SETTINGS_OPERATION,
     payload,
@@ -38,9 +39,15 @@ export function generateProblem() {
   };
 };
 
-export function sendAnswer(answer: string) {
+export function sendAnswer(payload: string) {
   return {
     type: SEND_ANSWER,
-    payload: answer,
+    payload,
+  };
+};
+
+export function sendCorrectAnswer() {
+  return {
+    type: SEND_CORRECT_ANSWER,
   };
 };
