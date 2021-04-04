@@ -17,12 +17,10 @@ function Problem() {
     [Operations.DIV]: () => problem.leftInt / problem.rightInt,
   };
 
-  const answer = problem.answer;
-  const correctAnswer = problemToAnswer[operation]();
+  const isAnswerCorrect = 
+    Number(problem.answer) === problemToAnswer[operation]();
 
-  console.log(correctAnswer)
-  console.log(answer)
-  if (Number(answer) === correctAnswer) {
+  if (isAnswerCorrect) {
     dispatch(generateProblem())
     dispatch(sendCorrectAnswer())
   }
@@ -34,8 +32,8 @@ function Problem() {
         <tbody>
           <tr className='problem__answer'>
             <td className='problem__cell problem__cell--answer'>
-              <input className='problem__answer-input' type='text' id='answer'
-                value={answer} disabled 
+              <input className='problem__answer-input'
+                type='text' id='answer' value={problem.answer} disabled 
               />
             </td>
           </tr>
