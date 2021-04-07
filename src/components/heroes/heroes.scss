@@ -1,4 +1,26 @@
 .heroes {
+  outline: 2px solid black;
+  position: relative;
+
+  padding-bottom: 20px;
   background-size: contain;
   aspect-ratio: 1333/1085;
+}
+
+.heroes__ducky {
+  position: absolute;
+  bottom: 12vw;
+  left: 15vw;
+
+  width: 11vw;
+  height: 40px;
+}
+
+.heroes__shark {
+  position: absolute;
+  bottom: 7vw;
+  left: -50vw;
+
+  width: 60vw;
+  height: 100px;
 }
