@@ -10,10 +10,9 @@
 .heroes__ducky {
   position: absolute;
   bottom: 12vw;
-  left: 15vw;
 
   width: 11vw;
-  height: 40px;
+  aspect-ratio: 9/8;
 }
 
 .heroes__shark {
@@ -22,5 +21,5 @@
   left: -50vw;
 
   width: 60vw;
-  height: 100px;
+  aspect-ratio: 9/4.5;
 }
