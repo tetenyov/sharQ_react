@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/index';
 
@@ -8,10 +8,6 @@ import shark from '../../img/shark.webp';
 
 function Heroes() {
   const position = useSelector((state: RootState) => state.progress.position);
-
-  // const [ duckyStyles, setDuckyStyles ] = useState({
-  //   left: '20vw'
-  // });
 
   const duckyRef = useRef<HTMLImageElement>(null);
   const sharkRef = useRef<HTMLImageElement>(null);

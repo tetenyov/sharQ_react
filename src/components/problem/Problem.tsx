@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 
@@ -24,11 +25,15 @@ function Problem() {
   const isAnswerCorrect = 
     Number(problem.answer) === problemToAnswer[operation]();
 
-  if (isAnswerCorrect) {
-    dispatch(generateProblem());
-    dispatch(sendCorrectAnswer());
-    dispatch(moveDucky());
-  }
+  useEffect(() => {
+    if (isAnswerCorrect) {
+      dispatch(generateProblem());
+      dispatch(sendCorrectAnswer());
+      dispatch(moveDucky());
+    }
+
+  }, [isAnswerCorrect])
+
 
   return (
     <section className='problem'>
