@@ -4,7 +4,8 @@ import {
   CHANGE_SETTINGS_SPEED,
   GENERATE_PROBLEM,
   SEND_ANSWER,
-  SEND_CORRECT_ANSWER, 
+  SEND_CORRECT_ANSWER,
+  CHANGE_DUCK_POSITION, 
 } from '../../constants/actions';
 
 type TChangeSettingsPayload = {
@@ -49,5 +50,11 @@ export function sendAnswer(payload: string) {
 export function sendCorrectAnswer() {
   return {
     type: SEND_CORRECT_ANSWER,
+  };
+};
+
+export function moveDucky() {
+  return {
+    type: CHANGE_DUCK_POSITION,
   };
 };

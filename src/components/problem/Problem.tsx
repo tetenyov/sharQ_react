@@ -2,7 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 
 import { Operations } from '../../constants/constants';
-import { generateProblem, sendCorrectAnswer } from '../../store/action-creators/action-creators';
+import { 
+  generateProblem, 
+  sendCorrectAnswer, 
+  moveDucky, 
+} from '../../store/action-creators/action-creators';
 
 
 function Problem() {
@@ -21,8 +25,9 @@ function Problem() {
     Number(problem.answer) === problemToAnswer[operation]();
 
   if (isAnswerCorrect) {
-    dispatch(generateProblem())
-    dispatch(sendCorrectAnswer())
+    dispatch(generateProblem());
+    dispatch(sendCorrectAnswer());
+    dispatch(moveDucky());
   }
 
   return (
