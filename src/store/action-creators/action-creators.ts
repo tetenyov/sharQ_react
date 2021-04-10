@@ -6,6 +6,8 @@ import {
   SEND_ANSWER,
   SEND_CORRECT_ANSWER,
   CHANGE_DUCK_POSITION, 
+  START_ROUND,
+  FINISH_ROUND,
 } from '../../constants/actions';
 
 type TChangeSettingsPayload = {
@@ -56,5 +58,17 @@ export function sendCorrectAnswer() {
 export function moveDucky() {
   return {
     type: CHANGE_DUCK_POSITION,
+  };
+};
+
+export function startRound() {
+  return {
+    type: START_ROUND,
+  };
+};
+
+export function finishRound() {
+  return {
+    type: FINISH_ROUND,
   };
 };

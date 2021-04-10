@@ -23,3 +23,26 @@
   width: 60vw;
   aspect-ratio: 9/4.5;
 }
+
+.heroes__shark--move {
+  position: absolute;
+  bottom: 7vw;
+  left: -50vw;
+
+  width: 60vw;
+  aspect-ratio: 9/4.5;
+
+  animation-name: sharkMove;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  animation-timing-function: linear;
+}
+
+@keyframes sharkMove {
+  from {
+    left: -50vw;
+  }
+  to {
+    left: 35vw;
+  }
+}
