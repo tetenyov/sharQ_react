@@ -1,0 +1,66 @@
+.problem {
+  margin-bottom: 6%;
+}
+
+.problem__table {
+  width: 80%;
+  min-width: 200px;
+  margin: 0 auto;
+
+  border-collapse: collapse;
+}
+
+.problem__answer,
+.problem__question {
+  display: grid;
+  justify-items: center;
+}
+
+.problem__question {
+  grid-template-columns: repeat(3, 33%);
+  justify-items: stretch;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.problem__cell {
+  display: block;
+  @include padd(4px, 0, 4px, 0);
+
+  @include font(1.7rem, 1.1, 700);
+  text-align: center;
+
+  background-color: $bg-cell-color;
+  box-shadow: inset 0 0 2px 0 #000000;
+
+  
+  &--answer {
+    width: 40%;
+    max-width: 250px;
+    height: 50px;
+    
+    background-color: transparent;
+    box-shadow: none;
+  }
+  &--operation {
+    min-width: 50px;
+    height: 40px;
+  }
+
+  &--first-integer,
+  &--second-integer {
+    min-width: 70px;
+    height: 40px;
+  }
+}
+
+.problem__answer-input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: $bg-cell-color;
+}
+
+.problem__answer-input--correct {
+  box-shadow: 0 0 0 2px $outline-green;
+}
