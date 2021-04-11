@@ -28,7 +28,6 @@ const generateDivisionOperands = (left: string, right: string, cb: Function) => 
   let limitMin;
   let limitMax;
 
-
   switch (left) {
     case 'threeDigits':
       limitMax = Math.floor(999 / divisor);
@@ -77,5 +76,7 @@ export function* generateProblem() {
       rightInt: getRandomInteger(digitsToLimits[rightOperand].min, digitsToLimits[rightOperand].max)
     };
 
-  yield put({ type: DISPATCH_PROBLEM, payload })
+  // if (state.progress.isStart) {
+    yield put({ type: DISPATCH_PROBLEM, payload })
+  // }
 };

@@ -2,7 +2,11 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import Settings from '../settings/Settings';
-import { generateProblem, startRound } from '../../store/action-creators/action-creators';
+import { 
+  generateProblem, 
+  startRound, 
+  toggleAnimation 
+} from '../../store/action-creators/action-creators';
 
 
 function Header() {
@@ -14,6 +18,7 @@ function Header() {
   const handleStartClick = () => {
     dispatch(generateProblem());
     dispatch(startRound());
+    dispatch(toggleAnimation(true));
   };
 
   return (

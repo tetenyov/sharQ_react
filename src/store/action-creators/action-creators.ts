@@ -8,6 +8,7 @@ import {
   CHANGE_DUCK_POSITION, 
   START_ROUND,
   FINISH_ROUND,
+  TOGGLE_ANIMATION,
 } from '../../constants/actions';
 
 type TChangeSettingsPayload = {
@@ -70,5 +71,12 @@ export function startRound() {
 export function finishRound() {
   return {
     type: FINISH_ROUND,
+  };
+};
+
+export function toggleAnimation(isAnimation: boolean) {
+  return {
+    type: TOGGLE_ANIMATION,
+    payload: isAnimation,
   };
 };

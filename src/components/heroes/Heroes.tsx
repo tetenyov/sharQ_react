@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '../../store/index';
-import { finishRound } from '../../store/action-creators/action-creators';
+import { finishRound, toggleAnimation } from '../../store/action-creators/action-creators';
 
 import bgImage from '../../img/bg_upper_part.png';
 import ducky from '../../img/ducky.webp';
@@ -11,10 +11,10 @@ import angryShark from '../../img/angry_shark.webp';
 
 function Heroes() {
   const [ isAngry, setIsAngry ] = useState(false);
-  const [ isDucky, setIsDucky ] = useState(true);
-  const [ isAnimation, setIsAnimation ] = useState(false);
+  const [ isDuckyVisible, setIsDuckyVisible ] = useState(true);
 
   const isStart = useSelector((state: RootState) => state.progress.isStart);
+  const isAnimation = useSelector((state: RootState) => state.animation.isAnimation);
   const position = useSelector((state: RootState) => state.progress.position);
   const sharkSpeed = useSelector((state: RootState) => state.settings.speed);
 
@@ -35,9 +35,9 @@ function Heroes() {
 
       if (shark - ducky > 25) {
         setIsAngry(false);
-        setIsAnimation(false);
-        setIsDucky(false);
+        setIsDuckyVisible(false);
         dispatch(finishRound());
+        dispatch(toggleAnimation(false));
       }
     }
   };
@@ -47,10 +47,9 @@ function Heroes() {
 
     if (isStart) {
       interval = setInterval(handleHeroesPositions, 200)
-      setIsAnimation(true)
     }
 
-    setIsDucky(true);
+    setIsDuckyVisible(true);
 
     return () => clearInterval(interval);
   }, [isStart]);
@@ -58,8 +57,8 @@ function Heroes() {
   return (
     <section className='heroes' style={{ backgroundImage: `url(${bgImage})` }}>
       <h2 className='visually-hidden'>Поле с анимацией</h2>
-      <img className='heroes__ducky' src={isDucky ? ducky : ''} alt='yellow duck'
-        ref={duckyRef} style={{left: `${position}vw`}}
+      <img className='heroes__ducky' src={ducky} alt='yellow duck'
+        ref={duckyRef} style={{left: `${position}vw`, display: isDuckyVisible ? 'block': 'none'}}
       />
       <img className={`${isStart ? 'heroes__shark heroes__shark--move' : 'heroes__shark'}`} 
         src={isAngry ? angryShark : shark} alt='angry shark'
