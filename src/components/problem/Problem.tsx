@@ -12,6 +12,7 @@ import {
 
 function Problem() {
   const problem = useSelector((state: RootState) => state.problem);
+  const isStart = useSelector((state: RootState) => state.progress.isStart);
   const operation = useSelector((state: RootState) => state.settings.operation);
   const dispatch = useDispatch();
 
@@ -49,13 +50,13 @@ function Problem() {
           </tr>
           <tr className='problem__question'>
             <td className='problem__cell problem__cell--first-integer'>
-              {problem.leftInt}
+              {isStart && problem.leftInt}
             </td>
             <td className='problem__cell problem__cell--operation'>
               {operation}
             </td>
             <td className='problem__cell problem__cell--second-integer'>
-              {problem.rightInt}
+              {isStart && problem.rightInt}
             </td>
           </tr>
         </tbody>

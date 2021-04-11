@@ -76,7 +76,5 @@ export function* generateProblem() {
       rightInt: getRandomInteger(digitsToLimits[rightOperand].min, digitsToLimits[rightOperand].max)
     };
 
-  // if (state.progress.isStart) {
-    yield put({ type: DISPATCH_PROBLEM, payload })
-  // }
+  yield put({ type: DISPATCH_PROBLEM, payload })
 };
