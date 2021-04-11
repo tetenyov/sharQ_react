@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import Settings from '../settings/Settings';
 import { 
   generateProblem, 
-  startRound, 
-  toggleAnimation 
+  toggleStart, 
+  // toggleAnimation 
 } from '../../store/action-creators/action-creators';
 
 
@@ -17,8 +17,8 @@ function Header() {
   
   const handleStartClick = () => {
     dispatch(generateProblem());
-    dispatch(startRound());
-    dispatch(toggleAnimation(true));
+    dispatch(toggleStart(true));
+    // dispatch(toggleAnimation(true));
   };
 
   return (

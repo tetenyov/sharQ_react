@@ -1,10 +1,9 @@
 import { TInitialState, TAction } from '../types/progress';
-import {  MOVE_DUCKY, START_ROUND, DISPATCH_FINISH_ROUND } from '../../constants/actions';
+import {  MOVE_DUCKY } from '../../constants/actions';
 
 const initialState: TInitialState = {
   position: 20,
   score: 0,
-  isStart: false,
 };
 
 export const progressReducer = (state = initialState, { type, payload }: TAction) => {
@@ -15,20 +14,6 @@ export const progressReducer = (state = initialState, { type, payload }: TAction
         position: payload.position,
         score: payload.score,
       };
-
-    case START_ROUND: 
-      return {
-        ...state, 
-        isStart: true,
-      };
-
-    case DISPATCH_FINISH_ROUND: 
-      return {
-        ...state, 
-        isStart: false,
-        position: 20,
-      };
-
     default: return state;
   }
 };

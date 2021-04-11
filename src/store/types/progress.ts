@@ -9,5 +9,4 @@ export type TAction = {
 export type TInitialState = {
   position: number;
   score: number;
-  isStart: boolean;
 };

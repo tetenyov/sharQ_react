@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '../../store/index';
-import { finishRound, toggleAnimation } from '../../store/action-creators/action-creators';
+import { toggleStart, toggleResume } from '../../store/action-creators/action-creators';
 
 import bgImage from '../../img/bg_upper_part.png';
 import ducky from '../../img/ducky.webp';
@@ -13,8 +13,8 @@ function Heroes() {
   const [ isAngry, setIsAngry ] = useState(false);
   const [ isDuckyVisible, setIsDuckyVisible ] = useState(true);
 
-  const isStart = useSelector((state: RootState) => state.progress.isStart);
-  const isAnimation = useSelector((state: RootState) => state.animation.isAnimation);
+  const isStart = useSelector((state: RootState) => state.gameStates.isStart);
+  // const isAnimation = useSelector((state: RootState) => state.animation.isAnimation);
   const position = useSelector((state: RootState) => state.progress.position);
   const sharkSpeed = useSelector((state: RootState) => state.settings.speed);
 
@@ -36,8 +36,8 @@ function Heroes() {
       if (shark - ducky > 25) {
         setIsAngry(false);
         setIsDuckyVisible(false);
-        dispatch(finishRound());
-        dispatch(toggleAnimation(false));
+        dispatch(toggleStart(false));
+        dispatch(toggleResume(true));
       }
     }
   };
@@ -62,7 +62,7 @@ function Heroes() {
       />
       <img className={`${isStart ? 'heroes__shark heroes__shark--move' : 'heroes__shark'}`} 
         src={isAngry ? angryShark : shark} alt='angry shark'
-        style={{animationDuration: `${25 / sharkSpeed }s`, animationPlayState: isAnimation ? 'running' : 'paused'}} 
+        style={{animationDuration: `${25 / sharkSpeed }s` }} 
         ref={sharkRef}
       />
     </section>

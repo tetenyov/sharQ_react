@@ -12,7 +12,7 @@ import {
 
 function Problem() {
   const problem = useSelector((state: RootState) => state.problem);
-  const isStart = useSelector((state: RootState) => state.progress.isStart);
+  const isStart = useSelector((state: RootState) => state.gameStates.isStart);
   const operation = useSelector((state: RootState) => state.settings.operation);
   const dispatch = useDispatch();
 
@@ -34,7 +34,6 @@ function Problem() {
     }
 
   }, [isAnswerCorrect])
-
 
   return (
     <section className='problem'>

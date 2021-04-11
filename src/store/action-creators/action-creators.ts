@@ -6,9 +6,8 @@ import {
   SEND_ANSWER,
   SEND_CORRECT_ANSWER,
   CHANGE_DUCK_POSITION, 
-  START_ROUND,
-  FINISH_ROUND,
-  TOGGLE_ANIMATION,
+  TOGGLE_START,
+  TOGGLE_RESUME,
 } from '../../constants/actions';
 
 type TChangeSettingsPayload = {
@@ -62,21 +61,16 @@ export function moveDucky() {
   };
 };
 
-export function startRound() {
+export function toggleStart(isStart: boolean) {
   return {
-    type: START_ROUND,
+    type: TOGGLE_START,
+    payload: isStart,
   };
 };
 
-export function finishRound() {
+export function toggleResume(isResume: boolean) {
   return {
-    type: FINISH_ROUND,
-  };
-};
-
-export function toggleAnimation(isAnimation: boolean) {
-  return {
-    type: TOGGLE_ANIMATION,
-    payload: isAnimation,
+    type: TOGGLE_RESUME,
+    payload: isResume,
   };
 };
