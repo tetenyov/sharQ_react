@@ -9,6 +9,13 @@ const initialState: TProblemState = {
 };
 
 export const problemReducer = (state = initialState, {type, payload}: TAction) => {
+
+  const getAnswer = (prevAnswer: string, payload: string) => {
+    return payload === 'delete'
+      ? prevAnswer.slice(0, prevAnswer.length - 1)
+      : prevAnswer += payload;
+  };
+
   switch (type) {
     case DISPATCH_PROBLEM:
       return {
@@ -20,7 +27,7 @@ export const problemReducer = (state = initialState, {type, payload}: TAction) =
     case SEND_ANSWER:
       return {
         ...state,
-        answer: state.answer += payload,
+        answer: getAnswer(state.answer, payload),
       };
 
     case DISPATCH_CORRECT_ANSWER:

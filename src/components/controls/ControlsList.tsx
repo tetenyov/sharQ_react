@@ -19,6 +19,7 @@ function ControlsList() {
 
   const handleControlClick = ({ target }: {target: any}) => {
     dispatch(sendAnswer(target.value))
+    console.log(target.value)
   }
 
   return (
@@ -28,7 +29,7 @@ function ControlsList() {
         <Control type="button" value="-">&#8722;</Control>
       </li>
       <li className="controls-list__item controls-list__item--delete" key={'12'}>
-        <Control type="button">&#8592;</Control>
+        <Control type="button" value='delete'>&#8592;</Control>
       </li>
     </ul>
   );
