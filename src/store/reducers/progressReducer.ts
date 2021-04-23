@@ -2,7 +2,7 @@ import { TInitialState, TAction } from '../types/progress';
 import {  MOVE_DUCKY } from '../../constants/actions';
 
 const initialState: TInitialState = {
-  position: 20,
+  position: 18,
   score: 0,
 };
 

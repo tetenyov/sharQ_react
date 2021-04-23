@@ -58,7 +58,7 @@ function Heroes() {
     <section className='heroes' style={{ backgroundImage: `url(${bgImage})` }}>
       <h2 className='visually-hidden'>Поле с анимацией</h2>
       <img className='heroes__ducky' src={ducky} alt='yellow duck'
-        ref={duckyRef} style={{left: `${position}vw`, display: isDuckyVisible ? 'block': 'none'}}
+        ref={duckyRef} style={{left: `${position}%`, display: isDuckyVisible ? 'block': 'none'}}
       />
       <img className={`${isStart ? 'heroes__shark heroes__shark--move' : 'heroes__shark'}`} 
         src={isAngry ? angryShark : shark} alt='angry shark'

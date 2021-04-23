@@ -9,27 +9,27 @@
 
 .heroes__ducky {
   position: absolute;
-  bottom: 12vw;
+  bottom: 20%;
 
-  width: 11vw;
+  width: 10%;
   aspect-ratio: 9/8;
 }
 
 .heroes__shark {
   position: absolute;
-  bottom: 7vw;
-  left: -50vw;
+  bottom: 12%;
+  left: -50%;
 
-  width: 60vw;
+  width: 60%;
   aspect-ratio: 9/4.5;
 }
 
 .heroes__shark--move {
   position: absolute;
-  bottom: 7vw;
-  left: -50vw;
+  bottom: 12%;
+  left: -50%;
 
-  width: 60vw;
+  width: 60%;
   aspect-ratio: 9/4.5;
 
   animation-name: sharkMove;
@@ -40,9 +40,9 @@
 
 @keyframes sharkMove {
   from {
-    left: -50vw;
+    left: -50%;
   }
   to {
-    left: 35vw;
+    left: 35%;
   }
 }
