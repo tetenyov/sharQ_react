@@ -12,8 +12,9 @@ export const Operations: TOperations = {
 };
 
 export const Score = {
-  WIN: 5,
   START: 0,
+  WIN: 5,
+  TRIGGER_WIN: 4
 };
 
 export const Positions = {
@@ -21,7 +22,10 @@ export const Positions = {
   DUCKY_MOVE: 13
 }
 
-export const DELAY_START = 1500;
+export const Delays = {
+  START: 1500,
+  ANSWER: 400,
+}
 
 export const NUMBER_CONTROLS = 10;
 

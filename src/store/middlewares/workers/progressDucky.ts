@@ -11,7 +11,7 @@ import {
 import { 
   Score, 
   Positions, 
-  DELAY_START 
+  Delays, 
 } from '../../../constants/constants';
 
 export function* progressDucky() {
@@ -32,13 +32,13 @@ export function* progressDucky() {
     });
   }
 
-  if (currentScore === 4) {
+  if (currentScore === Score.TRIGGER_WIN) {
     yield put({ 
       type: DISPATCH_TOGGLE_RESUME, 
       payload: true, 
     });
 
-    yield delay(DELAY_START);
+    yield delay(Delays.START);
 
     yield put({ 
       type: MOVE_DUCKY, 

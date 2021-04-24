@@ -1,11 +1,13 @@
+import { TSettingsState, TAction } from '../types/settings';
+
 import { 
   CHANGE_SETTINGS_OPERAND, 
   CHANGE_SETTINGS_OPERATION, 
   CHANGE_SETTINGS_SPEED 
 } from '../../constants/actions';
+
 import { Operations } from '../../constants/constants';
 
-import { TSettingsState, TAction } from '../types/settings';
 
 const initialState: TSettingsState = {
   leftInt: {

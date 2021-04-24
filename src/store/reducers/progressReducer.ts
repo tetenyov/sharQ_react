@@ -1,8 +1,11 @@
 import { TInitialState, TAction } from '../types/progress';
+
 import {  MOVE_DUCKY } from '../../constants/actions';
 
+import { Positions } from '../../constants/constants';
+
 const initialState: TInitialState = {
-  position: 18,
+  position: Positions.START,
   score: 0,
 };
 
