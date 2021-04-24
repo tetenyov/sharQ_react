@@ -1,13 +1,13 @@
 import { useEffect, MouseEvent } from 'react';
-
 import { useDispatch } from 'react-redux';
 
-import { sendAnswer } from '../../store/action-creators/action-creators'
-import Control from './Control';
-import { KeyCodes } from '../../constants/key-codes';
-import { isNumberKey, isBackspaceKey } from '../../utils/utils';
+import { sendAnswer } from '../../store/action-creators/action-creators';
 
-const NUMBER_CONTROLS = 10;
+import Control from './Control';
+
+import { KeyCodes } from '../../constants/key-codes';
+import { NUMBER_CONTROLS } from '../../constants/constants';
+import { isNumberKey, isBackspaceKey } from '../../utils/utils';
 
 function ControlsList() {
   const dispatch = useDispatch()
@@ -15,7 +15,7 @@ function ControlsList() {
   useEffect(() => {
     const handleNumberKeydown = ({ code }: {code: string}) => {
       if (isNumberKey(KeyCodes.NUMBER_CODES, code)) {
-        const answer = code.match(/\d/)?.join('') || ''
+        const answer = code.match(/\d/)?.join('') || '';
 
         dispatch(sendAnswer(answer));
       }
@@ -34,21 +34,23 @@ function ControlsList() {
       window.removeEventListener('keydown', handleNumberKeydown);
       window.removeEventListener('keydown', handleBackspaceKeydown);
     }
-  }, [])
+  }, []);
 
   const digitControls = Array.from({length: NUMBER_CONTROLS}, (_, i) => {
     const controlValue = (NUMBER_CONTROLS - 1) - i;
 
     return (
       <li className="controls-list__item" key={i}>
-        <Control type="button" value={controlValue}>{ controlValue }</Control>
+        <Control type="button" value={controlValue}>
+          { controlValue }
+        </Control>
       </li>
     );
   });
 
   const handleControlClick = (event: MouseEvent) => {
     dispatch(sendAnswer((event.target as HTMLButtonElement).value))
-  }
+  };
 
   return (
     <ul className="controls-list" onClick={handleControlClick}>

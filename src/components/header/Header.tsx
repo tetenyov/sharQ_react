@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Settings from '../settings/Settings';
 import { 
   generateProblem, 
   toggleStart, 
-  // toggleAnimation 
 } from '../../store/action-creators/action-creators';
 
+import Settings from '../settings/Settings';
 
 function Header() {
   const [ isOpen, setIsOpen ] = useState(false);
@@ -18,7 +17,6 @@ function Header() {
   const handleStartClick = () => {
     dispatch(generateProblem());
     dispatch(toggleStart(true));
-    // dispatch(toggleAnimation(true));
   };
 
   return (
@@ -29,7 +27,7 @@ function Header() {
       <button type='button' className='page-header__settings-toggler' onClick={handleMenuClick}>
         Menu
       </button>
-      <Settings menuIsOpen={isOpen}/>
+      <Settings menuIsOpen={isOpen} />
     </header>
   );
 };

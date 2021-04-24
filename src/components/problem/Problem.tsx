@@ -1,18 +1,20 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { RootState } from '../../store';
 
-import { Operations } from '../../constants/constants';
 import { 
   generateProblem, 
   sendCorrectAnswer, 
   moveDucky, 
 } from '../../store/action-creators/action-creators';
 
+import { Operations } from '../../constants/constants';
 
 function Problem() {
   const problem = useSelector((state: RootState) => state.problem);
   const isStart = useSelector((state: RootState) => state.gameStates.isStart);
+
   const operation = useSelector((state: RootState) => state.settings.operation);
   const dispatch = useDispatch();
 
@@ -33,7 +35,7 @@ function Problem() {
       dispatch(moveDucky());
     }
 
-  }, [isAnswerCorrect])
+  }, [ isAnswerCorrect ]);
 
   return (
     <section className='problem'>

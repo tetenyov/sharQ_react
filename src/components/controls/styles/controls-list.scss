@@ -1,9 +1,9 @@
 .controls-list {
-  outline: 1px solid red;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
   justify-items: stretch;
+  
   width: 65%;
   max-width: 400px;
   margin: 0 auto;
@@ -12,7 +12,6 @@
 .controls-list__item {
    aspect-ratio: 5/3;
 }
-
 
 .controls-list__item:nth-child(1) {
   order: 3;

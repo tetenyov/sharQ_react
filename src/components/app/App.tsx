@@ -1,7 +1,6 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../../store/index';
 
+import { RootState } from '../../store/index';
 import { toggleResume } from '../../store/action-creators/action-creators';
 
 import Header from '../header/Header';
@@ -10,15 +9,16 @@ import Problem from '../problem/Problem';
 import ControlsList from '../controls/ControlsList';
 import ModalContainer from '../modal/ModalContainer';
 
+import { Score } from '../../constants/constants';
+
 function App() {
   const { isResume } = useSelector((state: RootState) => state.gameStates);
   const { score } = useSelector((state: RootState) => state.progress);
   const dispatch = useDispatch();
-  console.log(score)
 
   const handleButtonClick = () => {
     dispatch(toggleResume(false))
-  }
+  };
 
   return (
     <div className='page-wrapper'>
@@ -30,7 +30,7 @@ function App() {
       </main>
       {isResume && 
         <ModalContainer>
-          {score === 5 
+          {score === Score.WIN 
             ? <p>Ducky saved!</p>
             : <p>Poor ducky!</p>
           }   

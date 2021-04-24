@@ -9,12 +9,13 @@ import ducky from '../../img/ducky.webp';
 import shark from '../../img/shark.webp';
 import angryShark from '../../img/angry_shark.webp';
 
+import { Jaws } from '../../constants/constants';
+
 function Heroes() {
   const [ isAngry, setIsAngry ] = useState(false);
   const [ isDuckyVisible, setIsDuckyVisible ] = useState(true);
 
   const isStart = useSelector((state: RootState) => state.gameStates.isStart);
-  // const isAnimation = useSelector((state: RootState) => state.animation.isAnimation);
   const position = useSelector((state: RootState) => state.progress.position);
   const sharkSpeed = useSelector((state: RootState) => state.settings.speed);
 
@@ -29,11 +30,13 @@ function Heroes() {
 
     if (shark && ducky) {
 
-      if (ducky - shark < 15 && ducky - shark > 0) {
+      if (ducky - shark < Jaws.OPEN_DISTANCE_MAX
+          && ducky - shark > Jaws.OPEN_DISTANCE_MIN
+        ) {
         setIsAngry(true)
       }
 
-      if (shark - ducky > 25) {
+      if (shark - ducky > Jaws.SHUT_DISTANCE) {
         setIsAngry(false);
         setIsDuckyVisible(false);
         dispatch(toggleStart(false));
@@ -52,7 +55,7 @@ function Heroes() {
     setIsDuckyVisible(true);
 
     return () => clearInterval(interval);
-  }, [isStart]);
+  }, [ isStart ]);
 
   return (
     <section className='heroes' style={{ backgroundImage: `url(${bgImage})` }}>
@@ -62,7 +65,7 @@ function Heroes() {
       />
       <img className={`${isStart ? 'heroes__shark heroes__shark--move' : 'heroes__shark'}`} 
         src={isAngry ? angryShark : shark} alt='angry shark'
-        style={{animationDuration: `${25 / sharkSpeed }s` }} 
+        style={{animationDuration: `${Jaws.SHUT_DISTANCE / sharkSpeed }s`}} 
         ref={sharkRef}
       />
     </section>

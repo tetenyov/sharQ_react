@@ -1,6 +1,4 @@
-import React from 'react'
-
-type TControl = JSX.IntrinsicElements['button']
+type TControl = JSX.IntrinsicElements['button'];
 
 function Control(props: TControl) {
   return (
@@ -8,6 +6,6 @@ function Control(props: TControl) {
       { props.children }
     </button>
   )
-}
+};
 
-export default Control
+export default Control;

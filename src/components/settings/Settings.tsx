@@ -1,13 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
+
 import { RootState } from '../../store';
-
-import { Operations } from '../../constants/constants'
-
 import {
   changeSettingsOperand,
   changeSettingsOperation,
   changeSettingsSpeed
 } from '../../store/action-creators/action-creators';
+
+import { Operations } from '../../constants/constants';
 
 type SettingsProps = { menuIsOpen: boolean };
 
@@ -30,7 +30,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
         break;
 
       default:
-        dispatch(changeSettingsSpeed(Number(target.value)))
+        dispatch(changeSettingsSpeed(Number(target.value)));
     }
   };
 
