@@ -21,12 +21,13 @@ function Header() {
 
   return (
     <header className='page-header'>
-      <button type='button' onClick={handleStartClick}>
+      <button type='button' className='page-header__button-start' onClick={handleStartClick}>
         Start
       </button>
-      <button type='button' className='page-header__settings-toggler' onClick={handleMenuClick}>
-        Menu
-      </button>
+      <button type='button' 
+        className={`page-header__settings-toggler ${isOpen ? 'page-header__settings-toggler--close' : ''}`} 
+        onClick={handleMenuClick} 
+      />
       <Settings menuIsOpen={isOpen} />
     </header>
   );

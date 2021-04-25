@@ -1,33 +1,108 @@
 .page-header {
+  outline: 1px solid black;
   position: relative;
   z-index: 2;
   display: flex;
   justify-content: space-between;
 
+  padding-right: 8%;
+  padding-left: 4%;
+
   height: 60px;
 }
 
+.page-header__button-start {
+  outline: 1px solid red;
+  align-self: flex-end;
+
+  width: 25vw;
+  min-width: 80px;
+  max-width: 200px;
+  @include padd(10px, 10px, 6px, 10px);
+
+  @include font(1.3rem, 1, 700);
+  text-transform: uppercase;
+  color: #ffffff;
+  
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .page-header__settings-toggler {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  align-self: flex-end;
   position: relative;
   z-index: 3;
 
-  width: 30vw;
-  height: 50px;
+  width: 10%;
+  height: 20px;
 
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 6px;
+    background-color: #ffffff;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 6px;
+    background-color: #ffffff;
+  }
+
+  &--close::before {
+    transform: rotate(5deg);
+  }
+
+  &--close::after {
+    transform: rotate(-5deg);
+  }
 
   &:focus {
     outline: none;
   }
 }
 
-@media (min-width: 750px) {
+@media (min-width: $tablet-width) {
+  .page-header {
+    height: 100px;
+  }
+
   .page-header__settings-toggler {
     font-size: 30px;
+  }
+
+  .page-header__button-start {
+    padding-top: 14px;
+    padding-bottom: 14px;
+
+    @include font(2rem, 1, 700);
+  }
+
+  .page-header__settings-toggler {
+    height: 40px;
+  
+    &::before {
+      height: 12px;
+    }
+  
+    &::after {
+      height: 12px;
+    }
+  
+    &--close::before {
+      transform: rotate(5deg);
+    }
   }
 }
