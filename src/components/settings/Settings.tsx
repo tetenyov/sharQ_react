@@ -27,7 +27,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
 
       case 'operation':
         dispatch(changeSettingsOperation(target.value));
-        break;
+        break; 
 
       default:
         dispatch(changeSettingsSpeed(Number(target.value)));
@@ -51,7 +51,7 @@ function Settings({ menuIsOpen }: SettingsProps) {
               type="radio" name="leftInt" value="twoDigits" checked={settings.leftInt.twoDigits}
             />
             {!(settings.operation === Operations.MULT) &&
-              <input className="settings-list__input settings-list__input--first-number-three settings-list__input--hidden"
+              <input className="settings-list__input settings-list__input--first-number-three"
                 type="radio" name="leftInt" value="threeDigits" checked={settings.leftInt.threeDigits} readOnly
               />
             }

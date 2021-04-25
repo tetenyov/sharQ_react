@@ -1,5 +1,4 @@
 .page-header {
-  outline: 1px solid black;
   position: relative;
   z-index: 2;
   display: flex;
@@ -12,7 +11,6 @@
 }
 
 .page-header__button-start {
-  outline: 1px solid red;
   align-self: flex-end;
 
   width: 25vw;
@@ -36,6 +34,7 @@
 
   width: 10%;
   height: 20px;
+  margin-bottom: 6px;
 
   background-color: transparent;
   border: none;
@@ -77,21 +76,19 @@
 @media (min-width: $tablet-width) {
   .page-header {
     height: 100px;
-  }
-
-  .page-header__settings-toggler {
-    font-size: 30px;
+    padding-left: 0;
   }
 
   .page-header__button-start {
     padding-top: 14px;
     padding-bottom: 14px;
 
-    @include font(2rem, 1, 700);
+    @include font(2.3rem, 1, 700);
   }
 
   .page-header__settings-toggler {
     height: 40px;
+    margin-bottom: 10px;
   
     &::before {
       height: 12px;

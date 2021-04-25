@@ -2,13 +2,14 @@
   position: absolute;
   top: 0;
   z-index: 1;
-
-  width: 85%;
-  height: 100vh;
   transform: translate(120%, 0);
   transition: transform 0.6s ease;
 
-  background-color: antiquewhite;
+  width: 85%;
+  height: 100vh;
+  @include padd(15vw, 10px, 10px, 10vw);
+
+  background-color: $settings-color;
 
   &--show {
     transform: translate(24%, 0);
@@ -16,16 +17,108 @@
   }
 }
 
+.settings-list__item {
+  margin-bottom: 60px;
+}
+
+.settings-list__fieldset {
+  margin-bottom: 34px;
+}
+
+.settings-list__legend {
+  display: block;
+  position: relative;
+
+  margin-bottom: 1%;
+  padding: 0;
+
+  @include font(1.4rem, 1.2, normal);
+  color: #ffffff;
+
+  & input[type="range"] {
+    width: 80%;
+    margin-top: 12px;
+  }
+}
+
+.settings-list__inputs-group {
+  margin: 0;
+  padding: 0;
+  padding-top: 2%;
+}
+
+.settings-list__input {
+  position: relative;
+
+  width: 9vw;
+  max-width: 30px;
+  height: 9vw;
+  max-height: 30px;
+  margin-right: 10px;
+
+  &--hidden {
+    display: none;
+  }
+
+  &::before {
+    position: absolute;
+    left: 5px;
+    bottom: -36px;
+
+    @include font(1.5rem, 1.2, bold);
+    color: #ffffff;
+  }
+}
+
+.settings-list__input--first-number-one::before,
+.settings-list__input--second-number-one::before {
+  content: "1";
+}
+
+.settings-list__input--first-number-two::before,
+.settings-list__input--second-number-two::before {
+  content: "10";
+  left: 0;
+}
+
+.settings-list__input--first-number-three::before,
+.settings-list__input--second-number-three::before {
+  content: "100";
+  left: 0;
+}
+
+.settings-list__input--operation-add::before {
+  content: "\002B";
+}
+
+.settings-list__input--operation-subtr::before {
+  content: "\2212";
+}
+
+.settings-list__input--operation-mult::before {
+  content: "\00D7";
+}
+
+.settings-list__input--operation-div::before {
+  content: "\00F7";
+  left: 5px;
+}
+
 @media (min-width: $tablet-width) {
   .settings-list {
     display: flex;
+    transform: translate(0, -110%);
 
     width: 100%;
     height: auto;
-    transform: translate(0, -110%);
+    @include padd(5%, 6px, 6px, 2%);
 
     &--show {
       transform: translate(0, 0);
     }
+  }
+
+  .settings-list__item:not(:last-child) {
+    margin-right: 20px;
   }
 }
