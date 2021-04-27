@@ -1,4 +1,4 @@
-import { useEffect, MouseEvent } from 'react';
+import React, { useEffect, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { sendAnswer } from '../../store/action-creators/action-creators';
@@ -9,9 +9,9 @@ import { KeyCodes } from '../../constants/key-codes';
 import { NUMBER_CONTROLS } from '../../constants/constants';
 import { isNumberKey, isBackspaceKey } from '../../utils/utils';
 
-function ControlsList() {
-  const dispatch = useDispatch()
-
+const ControlsList = React.memo(() => {
+  const dispatch = useDispatch();
+  
   useEffect(() => {
     const handleNumberKeydown = ({ code }: {code: string}) => {
       if (isNumberKey(KeyCodes.NUMBER_CODES, code)) {
@@ -63,6 +63,6 @@ function ControlsList() {
       </li>
     </ul>
   );
-};
+});
 
 export default ControlsList;
