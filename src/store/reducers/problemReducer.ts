@@ -1,6 +1,6 @@
 import { DISPATCH_PROBLEM, SEND_ANSWER, DISPATCH_CORRECT_ANSWER } from '../../constants/actions';
 
-import { TAction, TProblemState } from '../types/problem';
+import { TAction, TProblemState } from '../../types/store/problem';
 
 const initialState: TProblemState = {
   leftInt: 0,

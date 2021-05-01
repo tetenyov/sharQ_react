@@ -1,8 +1,5 @@
-import { TDigitsToLimits } from '../store/types/saga';
-
-type TOperations = {
-  [key: string]: string;
-};
+import { TDigitsToLimits } from '../types/store/saga';
+import { TOperations } from '../types/typed-constants';
 
 export const Operations: TOperations = {
   ADD: '+',

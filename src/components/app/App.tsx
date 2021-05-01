@@ -17,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
 
   const handleButtonClick = () => {
-    dispatch(toggleResume(false))
+    dispatch(toggleResume(false));
   };
 
   return (
@@ -41,6 +41,6 @@ function App() {
       }
     </div>
   );
-}
+};
 
 export default App;

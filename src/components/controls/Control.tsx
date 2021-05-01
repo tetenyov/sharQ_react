@@ -1,4 +1,4 @@
-type TControl = JSX.IntrinsicElements['button'];
+import { TControl } from '../../types/typed-props';
 
 function Control(props: TControl) {
   return (

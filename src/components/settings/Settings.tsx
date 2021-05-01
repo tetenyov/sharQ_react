@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '../../store';
+
+import { TSettings } from '../../types/typed-props';
+
 import {
   changeSettingsOperand,
   changeSettingsOperation,
@@ -9,9 +12,7 @@ import {
 
 import { Operations } from '../../constants/constants';
 
-type SettingsProps = { menuIsOpen: boolean };
-
-function Settings({ menuIsOpen }: SettingsProps) {
+function Settings({ menuIsOpen }: TSettings) {
   const settings = useSelector((state: RootState) => state.settings);
   const dispatch = useDispatch();
 

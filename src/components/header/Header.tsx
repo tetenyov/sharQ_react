@@ -21,7 +21,10 @@ function Header() {
 
   return (
     <header className='page-header'>
-      <button type='button' className='page-header__button-start' onClick={handleStartClick}>
+      <button 
+        type='button' className='page-header__button-start' 
+        onClick={handleStartClick}
+      >
         Start
       </button>
       <button type='button' 

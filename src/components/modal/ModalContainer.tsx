@@ -1,6 +1,6 @@
-type TProps = JSX.IntrinsicElements['div'];
+import { TModalContainer } from '../../types/typed-props';
 
-function ModalContainer(props: TProps) {
+function ModalContainer(props: TModalContainer) {
   return (
     <div className='modal'>
       { props.children }

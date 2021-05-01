@@ -1,6 +1,6 @@
 import { delay, put } from '@redux-saga/core/effects';
 
-import { TAction } from '../../types/gameStates';
+import { TAction } from '../../../types/store/gameStates';
 
 import { 
   MOVE_DUCKY,

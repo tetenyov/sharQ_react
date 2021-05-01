@@ -1,4 +1,4 @@
-import { TSettingsState, TAction } from '../types/settings';
+import { TSettingsState, TAction } from '../../types/store/settings';
 
 import { 
   CHANGE_SETTINGS_OPERAND, 

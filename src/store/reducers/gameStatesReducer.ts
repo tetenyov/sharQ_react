@@ -1,6 +1,6 @@
 import { DISPATCH_TOGGLE_START, DISPATCH_TOGGLE_RESUME } from '../../constants/actions';
 
-import { TInitialState, TAction } from '../types/gameStates';
+import { TInitialState, TAction } from '../../types/store/gameStates';
 
 const initialState: TInitialState = {
   isStart: false,

@@ -1,3 +1,5 @@
+import { TChangeSettingsPayload } from '../../types/store/action-creators';
+
 import { 
   CHANGE_SETTINGS_OPERAND, 
   CHANGE_SETTINGS_OPERATION, 
@@ -9,11 +11,6 @@ import {
   TOGGLE_START,
   TOGGLE_RESUME,
 } from '../../constants/actions';
-
-type TChangeSettingsPayload = {
-  operand: string;
-  value?: string;
-};
 
 export function changeSettingsOperand(payload: TChangeSettingsPayload) {
   return {

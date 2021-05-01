@@ -1,4 +1,4 @@
-import { TInitialState, TAction } from '../types/progress';
+import { TInitialState, TAction } from '../../types/store/progress';
 
 import {  MOVE_DUCKY } from '../../constants/actions';
 
