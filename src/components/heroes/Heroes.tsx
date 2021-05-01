@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '../../store/index';
-import { toggleStart, toggleResume } from '../../store/action-creators/action-creators';
+import { toggleStart, toggleResume, sendCorrectAnswer } from '../../store/action-creators/action-creators';
 
 import bgImage from '../../img/bg_upper_part.png';
 import ducky from '../../img/ducky.webp';
@@ -41,6 +41,7 @@ function Heroes() {
         setIsDuckyVisible(false);
         dispatch(toggleStart(false));
         dispatch(toggleResume(true));
+        dispatch(sendCorrectAnswer());
       }
     }
   };
