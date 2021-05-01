@@ -42,6 +42,8 @@
 }
 
 .settings-list__inputs-group {
+  display: flex;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
   padding-top: 2%;
@@ -120,5 +122,19 @@
 
   .settings-list__item:not(:last-child) {
     margin-right: 20px;
+  }
+
+  .settings-list__legend { 
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .settings-list__input { 
+    width: 24px;
+    height: 24px;
+
+    &::before {
+      font-size: 1.3rem;
+    }
   }
 }
