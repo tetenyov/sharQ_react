@@ -62,10 +62,6 @@
     background-color: #ffffff;
   }
 
-  &--close {
-    transform: translateY(200%)
-  }
-
   &--close::before {
     transform: rotate(5deg);
   }
@@ -93,8 +89,13 @@
   }
 
   .page-header__settings-toggler {
+    
     height: 40px;
     margin-bottom: 10px;
+    
+    &--close {
+      transform: translateY(200%)
+    }
   
     &::before {
       height: 12px;
