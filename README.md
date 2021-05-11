@@ -13,3 +13,5 @@ It gives you the opportunity to practice the skill of quick mental calculations 
 
 ### Stack
 TypeScript, React, Redux(Saga). 
+
+![Screenshot 2021-05-11 215054](https://user-images.githubusercontent.com/2980611/117869369-6216b200-b2a3-11eb-80a4-72e03afa048a.png)
