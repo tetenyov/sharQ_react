@@ -1,5 +1,5 @@
 # sharQ
-### An educational game for mental calculations training.
+### An educational game for mental calculations training
 
 ### What for?
 It gives you the opportunity to practice the skill of quick mental calculations on the way to work or just having nothing to do.

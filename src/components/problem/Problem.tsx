@@ -14,8 +14,8 @@ import { Operations } from '../../constants/constants';
 function Problem() {
   const problem = useSelector((state: RootState) => state.problem);
   const isStart = useSelector((state: RootState) => state.gameStates.isStart);
-
   const operation = useSelector((state: RootState) => state.settings.operation);
+  
   const dispatch = useDispatch();
 
   const problemToAnswer = {

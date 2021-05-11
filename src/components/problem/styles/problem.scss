@@ -26,18 +26,19 @@
 
 .problem__cell {
   display: block;
-  @include padd(4px, 0, 4px, 0);
+  @include padd(8px, 0, 4px, 0);
 
   @include font(1.7rem, 1.1, 700);
   text-align: center;
 
   background-color: $bg-cell-color;
   box-shadow: inset 0 0 2px 0 #000000;
+  border-radius: 3px;
   
   &--answer {
     width: 40%;
     max-width: 250px;
-    height: 50px;
+    height: 54px;
     
     background-color: transparent;
     box-shadow: none;
@@ -58,7 +59,13 @@
   display: block;
   width: 100%;
   height: 100%;
+  
+  @include font(1.7rem, 1.1, 700);
+  color: #000000;
+  text-align: center;
+
   background-color: $bg-cell-color;
+  border-radius: 3px;
 }
 
 .problem__answer-input--correct {
