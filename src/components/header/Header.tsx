@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { 
@@ -6,7 +6,7 @@ import {
   toggleStart, 
 } from '../../store/action-creators/action-creators';
 
-import Settings from '../settings/Settings';
+const Settings = lazy(() => import('../settings/Settings'))
 
 function Header() {
   const [ isOpen, setIsOpen ] = useState(false);
@@ -31,7 +31,9 @@ function Header() {
         className={`page-header__settings-toggler ${isOpen ? 'page-header__settings-toggler--close' : ''}`} 
         onClick={handleMenuClick} 
       />
-      <Settings menuIsOpen={isOpen} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Settings menuIsOpen={isOpen} />
+      </Suspense>
     </header>
   );
 };
